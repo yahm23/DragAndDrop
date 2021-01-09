@@ -70,10 +70,15 @@ body {
   border-radius: 30px;
   /* height: 100px; */
   padding: 20px;
-  background-color: blanchedalmond;
+  background-color: lightslategrey;
   transform: translate(-50%, -50%);
 }
+input{
+  padding: 8px;
+  border-radius: 8px;
+  margin: 20px 10px;
 
+}
 .uploadContainer{
   max-width: 1620px;
   align-self: center;

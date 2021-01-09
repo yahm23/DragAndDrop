@@ -36,16 +36,16 @@ export default function DragAndDrop() {
     }
 
     // Not functioning, as ran out of time. left in as reference.
-    // const moveFile = (fileID, upwards)=>{
-    //     var oldIndex = fileList.findIndex(file => file.id ===fileID);
-    //     console.log('old index is '+ oldIndex);
-    //     var newIndex;
-    //     newIndex= oldIndex + upwards? -1:+1
-    //     console.log('new index is '+ newIndex);
-    //     var movedArray = array_move(fileList, oldIndex, newIndex )
-    //     console.log(movedArray);
-    //     setFileList(movedArray)
-    // }
+    const moveFile = (fileID, upwards)=>{
+        var oldIndex = fileList.findIndex(file => file.id ===fileID);
+        console.log('old index is '+ oldIndex);
+        var newIndex;
+        newIndex= oldIndex + upwards? -1:+1
+        console.log('new index is '+ newIndex);
+        var movedArray = array_move(fileList, oldIndex, newIndex )
+        console.log(movedArray);
+        setFileList(movedArray)
+    }
     
 
     return (
@@ -70,7 +70,7 @@ export default function DragAndDrop() {
                 <div className='fileListContainer'>
                     <FileList
                         files={fileList}
-                        // moveFile={moveFile}
+                        moveFile={moveFile}
                         deleteSpecificFile={deleteSpecificFile}
                         editFileName={editFileName}
                     />
@@ -78,6 +78,7 @@ export default function DragAndDrop() {
 
             </div>
                 <button onClick={()=>setFileList([])}>Clear Entire Queue</button>
+                {/* <button onClick={()=>console.log(fileList)}>LOG</button> */}
         </div>
     )
 }

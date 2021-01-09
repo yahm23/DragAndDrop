@@ -4,8 +4,10 @@ export default function FileList(props) {
     const [modalShow,setShow]=useState(false)
     const [editID,setID]=useState()
     const [newName,setNewName]=useState('')
+    const [files,setAllFiles] = useState(props.files)
 
     useEffect(() => {
+        setAllFiles(props.files)
     }, [props.files])
     // Handlers for different events
     const handleSubmit = (event)=>{
@@ -24,9 +26,9 @@ export default function FileList(props) {
     }
 
     // Not functioning, as ran out of time. left in as reference.
-    // const handleChangeFilePosition =(id,upwards) =>{
-    //      props.moveFile(id,upwards)
-    // }
+    const handleChangeFilePosition =(id,upwards) =>{
+         props.moveFile(id,upwards)
+    }
 
     return (
         <div>
@@ -44,14 +46,15 @@ export default function FileList(props) {
             }
 
             <div className='filesContainer'>
-                {props.files.map((file,index)=>{
+                {files.map((file,index)=>{
                     return (
                         <div className='fileList' key={index}>
                             <h5>{file.name}</h5>
                             
-                            {/* <button onClick={()=>{handleChangeFilePosition(file.id,true)}}>+</button> Was in the process of changing position in queu functionality.
+                            {/* Was in the process of changing position in queu functionality. */}
+                            {/* <button onClick={()=>{handleChangeFilePosition(file.id,true)}}>+</button> 
                             <button onClick={()=>{handleChangeFilePosition(file.id,false)}}>-</button> */}
-                            <button onClick={()=>{handleShowEdit(file.id)}}>Edit File</button>
+                            <button onClick={()=>{handleShowEdit(file.id)}}>Edit File Name</button>
                             <button onClick={()=>{handleFileDelete(file.id)}}>Delete File</button>
                         </div>
                     )
