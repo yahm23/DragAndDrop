@@ -6,7 +6,7 @@ import FileList from './FileList'
 export default function DragAndDrop() {
     const [fileList,setFileList] = useState([])
 
-    //Function used as a callback with the dropzone package, stores the files into state,while creating a random ID
+    //Function used as a callback with the dropzone package, stores the files into state,while also creating a random ID
     const addFileToList = (fileObject) =>{
         let newObj = [...fileList]; // copying the old state
         fileObject.id = idGenerator();
@@ -26,6 +26,9 @@ export default function DragAndDrop() {
             setFileList(updatedList)
     }
 
+    const deleteSpecificFile = (fileID) => {
+        setFileList(fileList.filter(file => file.id !== fileID));
+    }
 
 
 
@@ -45,7 +48,7 @@ export default function DragAndDrop() {
                 )}
             </Dropzone>
 
-            <FileList editFileName={editFileName} files={fileList}/>
+            <FileList deleteSpecificFile={deleteSpecificFile} editFileName={editFileName} files={fileList}/>
 
             <button onClick={()=>{console.log( fileList)}}>Log fileList</button>
         </div>

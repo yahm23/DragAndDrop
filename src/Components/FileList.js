@@ -5,6 +5,8 @@ export default function FileList(props) {
     const [editID,setID]=useState()
     const [newName,setNewName]=useState('')
 
+    // Handlers for different events
+
     const handleSubmit = (event)=>{
         event.preventDefault();
         console.log(event);
@@ -15,6 +17,10 @@ export default function FileList(props) {
     const handleShowEdit = (id)=>{
         setID(id)
         setShow(true)
+    }
+
+    const handleFileDelete = (id) => {
+        props.deleteSpecificFile(id)
     }
 
     return (
@@ -36,7 +42,8 @@ export default function FileList(props) {
                     return (
                         <div className='fileList' key={index}>
                             <h1>{file.name}</h1>
-                            <button onClick={()=>{handleShowEdit(file.id)}}>Edit Item</button>
+                            <button onClick={()=>{handleShowEdit(file.id)}}>Edit File</button>
+                            <button onClick={()=>{handleFileDelete(file.id)}}>Delete File</button>
                         </div>
                     )
                 })}
