@@ -31,16 +31,6 @@ export default function DragAndDrop() {
             </Dropzone>
 
             <FileList files={fileList}/>
-            {/* <ul>
-                {fileList.map((file,index)=>{
-                    return (
-                        <li key={index}>
-                            <h1>{file.name}</h1>
-                        </li>
-
-                    )
-                })}
-            </ul> */}
 
             <button onClick={()=>{console.log(fileList)}}>Log fileList</button>
         </div>
