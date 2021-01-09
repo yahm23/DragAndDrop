@@ -39,6 +39,9 @@
 
 .fileList{
   border:1px solid black;
+  width: 400px;
+  margin: 0 auto;
+
 }
 
 .modalEdit{
@@ -52,4 +55,11 @@
   max-width: 1620px;
   align-self: center;
   margin: 0 auto;
+}
+
+.dragZone{
+  margin: 0 auto;
+  width: 400px;
+  border: 2px dotted plum;
+  background-color: blanchedalmond;
 }

@@ -39,7 +39,7 @@ export default function DragAndDrop() {
         <div>
             <h1>Drag and drop</h1>
 
-            <div className=''>
+            <div className='dragZone'>
                 <Dropzone onDrop={acceptedFiles => addFileToList(acceptedFiles[0])}>
                     {({getRootProps, getInputProps}) => (
                     <section>
