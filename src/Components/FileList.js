@@ -9,6 +9,8 @@ export default function FileList(props) {
     useEffect(() => {
         setAllFiles(props.files)
     }, [props.files])
+
+
     // Handlers for different events
     const handleSubmit = (event)=>{
         event.preventDefault();
@@ -16,6 +18,7 @@ export default function FileList(props) {
         props.editFileName(editID,newName)
     }
 
+    //Shows the edit modal, this can be done other ways but felt it was the cleanest
     const handleShowEdit = (id)=>{
         setID(id)
         setShow(true)
@@ -25,7 +28,7 @@ export default function FileList(props) {
         props.deleteSpecificFile(id)
     }
 
-    // Not functioning, as ran out of time. left in as reference.
+    // Not functioning, as ran out of time. left in as reference to what I was attempting.
     const handleChangeFilePosition =(id,upwards) =>{
          props.moveFile(id,upwards)
     }
@@ -33,6 +36,7 @@ export default function FileList(props) {
     return (
         <div>
             {modalShow?
+                // When edit is clicked; the user will be able to edit the selected item or exit returning to the main.
                 <div className="modalEdit">
                     <form className="editForm" onSubmit={handleSubmit}>
                         <input value={newName} onChange={e => setNewName(e.target.value)} placeholder="New file name"></input>

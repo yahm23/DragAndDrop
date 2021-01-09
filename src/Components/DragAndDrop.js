@@ -78,7 +78,6 @@ export default function DragAndDrop() {
 
             </div>
                 <button onClick={()=>setFileList([])}>Clear Entire Queue</button>
-                {/* <button onClick={()=>console.log(fileList)}>LOG</button> */}
         </div>
     )
 }
