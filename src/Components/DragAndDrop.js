@@ -14,18 +14,21 @@ export default function DragAndDrop() {
         setFileList(newObj);
     }
 
+    // Finds specific file in fileList state array, updates just the name with the id.
     const editFileName = (fileID,newName)=>{
         let updatedList = fileList.map(file => 
             {
               if (file.id === fileID){
-                return {...file, name: newName}; //gets everything that was already in file, and updates name
+                return {...file, name: newName}; 
               }
-              return file; // else return unmodified item 
+              return file; 
             });
         
             setFileList(updatedList)
     }
 
+    
+    // Finds specific file in fileList state array, deletes(filters out) one with that id.
     const deleteSpecificFile = (fileID) => {
         setFileList(fileList.filter(file => file.id !== fileID));
     }
@@ -36,21 +39,25 @@ export default function DragAndDrop() {
         <div>
             <h1>Drag and drop</h1>
 
-            <Dropzone onDrop={acceptedFiles => addFileToList(acceptedFiles[0])}>
-                {({getRootProps, getInputProps}) => (
-                <section>
-                    <div {...getRootProps()}>
-                        <p>Drag files here to upload</p>
-                        <input {...getInputProps()} />
-                        <button>Upload File</button>
-                    </div>
-                </section>
-                )}
-            </Dropzone>
+            <div className=''>
+                <Dropzone onDrop={acceptedFiles => addFileToList(acceptedFiles[0])}>
+                    {({getRootProps, getInputProps}) => (
+                    <section>
+                        <div {...getRootProps()}>
+                            <p>Drag files here to upload</p>
+                            <input {...getInputProps()} />
+                            <button>Upload File</button>
+                        </div>
+                    </section>
+                    )}
+                </Dropzone>
+            </div>
+
 
             <FileList deleteSpecificFile={deleteSpecificFile} editFileName={editFileName} files={fileList}/>
 
             <button onClick={()=>{console.log( fileList)}}>Log fileList</button>
+            <button onClick={()=>setFileList([])}>Clear Entire Queue</button>
         </div>
     )
 }
