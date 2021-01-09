@@ -1,5 +1,6 @@
 import React, {useState} from 'react'
 import Dropzone from 'react-dropzone'
+import FileList from './FileList'
 
 export default function DragAndDrop() {
     const [fileList,setFileList] = useState([])
@@ -21,15 +22,16 @@ export default function DragAndDrop() {
                 {({getRootProps, getInputProps}) => (
                 <section>
                     <div {...getRootProps()}>
-                    <p>Drag files here to upload</p>
-                    <input {...getInputProps()} />
-                    <button>Upload File</button>
+                        <p>Drag files here to upload</p>
+                        <input {...getInputProps()} />
+                        <button>Upload File</button>
                     </div>
                 </section>
                 )}
             </Dropzone>
 
-            <ul>
+            <FileList files={fileList}/>
+            {/* <ul>
                 {fileList.map((file,index)=>{
                     return (
                         <li key={index}>
@@ -38,7 +40,7 @@ export default function DragAndDrop() {
 
                     )
                 })}
-            </ul>
+            </ul> */}
 
             <button onClick={()=>{console.log(fileList)}}>Log fileList</button>
         </div>
