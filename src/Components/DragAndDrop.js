@@ -1,6 +1,6 @@
 import React, {useState} from 'react'
 import Dropzone from 'react-dropzone'
-import { idGenerator } from '../functions'
+import { array_move, idGenerator } from '../functions'
 import FileList from './FileList'
 
 export default function DragAndDrop() {
@@ -19,7 +19,9 @@ export default function DragAndDrop() {
         let updatedList = fileList.map(file => 
             {
               if (file.id === fileID){
-                return {...file, name: newName}; 
+                //   return file
+                console.log(file.size);
+                return { ...file, name: newName}; 
               }
               return file; 
             });
@@ -33,31 +35,49 @@ export default function DragAndDrop() {
         setFileList(fileList.filter(file => file.id !== fileID));
     }
 
-
+    // Not functioning, as ran out of time. left in as reference.
+    // const moveFile = (fileID, upwards)=>{
+    //     var oldIndex = fileList.findIndex(file => file.id ===fileID);
+    //     console.log('old index is '+ oldIndex);
+    //     var newIndex;
+    //     newIndex= oldIndex + upwards? -1:+1
+    //     console.log('new index is '+ newIndex);
+    //     var movedArray = array_move(fileList, oldIndex, newIndex )
+    //     console.log(movedArray);
+    //     setFileList(movedArray)
+    // }
+    
 
     return (
         <div>
-            <h1>Drag and drop</h1>
+            <div className="centerUpload">
 
-            <div className='dragZone'>
-                <Dropzone onDrop={acceptedFiles => addFileToList(acceptedFiles[0])}>
-                    {({getRootProps, getInputProps}) => (
-                    <section>
-                        <div {...getRootProps()}>
-                            <p>Drag files here to upload</p>
-                            <input {...getInputProps()} />
-                            <button>Upload File</button>
-                        </div>
-                    </section>
-                    )}
-                </Dropzone>
+                <div className='dragZone'>
+                    <Dropzone onDrop={acceptedFiles => addFileToList(acceptedFiles[0])}>
+                        {({getRootProps, getInputProps}) => (
+                        <section> 
+                            <div className="dropZone" {...getRootProps()}>
+                                <p>Drag files here to upload</p>
+                                <input {...getInputProps()} />
+                                <button>Upload File</button>
+                            </div>
+                        </section>
+                        )}
+                    </Dropzone>
+
+
+                </div>
+                <div className='fileListContainer'>
+                    <FileList
+                        files={fileList}
+                        // moveFile={moveFile}
+                        deleteSpecificFile={deleteSpecificFile}
+                        editFileName={editFileName}
+                    />
+                </div>
+
             </div>
-
-
-            <FileList deleteSpecificFile={deleteSpecificFile} editFileName={editFileName} files={fileList}/>
-
-            <button onClick={()=>{console.log( fileList)}}>Log fileList</button>
-            <button onClick={()=>setFileList([])}>Clear Entire Queue</button>
+                <button onClick={()=>setFileList([])}>Clear Entire Queue</button>
         </div>
     )
 }

@@ -1,5 +1,6 @@
-.App {
+body {
   text-align: center;
+  background-color: #F8F8F8;
 }
 
 .App-logo {
@@ -38,6 +39,7 @@
 }
 
 .fileList{
+  
   border:1px solid black;
   width: 400px;
   margin: 0 auto;
@@ -45,10 +47,25 @@
 }
 
 .modalEdit{
+    width:100vw;
+    height: 100vh;
     position: absolute;
+    background-color: rgba(255,255,255,0.5);
     left: 50%;
     top: 50%;
     transform: translate(-50%, -50%);
+}
+
+.editForm{
+  position: relative;
+  left: 50%;
+  top: 50%;
+  width:300px;
+  border-radius: 30px;
+  /* height: 100px; */
+  padding: 20px;
+  background-color: blanchedalmond;
+  transform: translate(-50%, -50%);
 }
 
 .uploadContainer{
@@ -57,9 +74,21 @@
   margin: 0 auto;
 }
 
+.dropZone{
+  padding: 200px 0px;
+}
 .dragZone{
   margin: 0 auto;
+
   width: 400px;
-  border: 2px dotted plum;
+  height: 500px;
+  border-radius: 10px;
+  border: 6px dotted plum;
   background-color: blanchedalmond;
+}
+
+.centerUpload{
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  grid-template-rows: 1fr;
 }
