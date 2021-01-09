@@ -1,7 +1,11 @@
+@import url('https://fonts.googleapis.com/css2?family=Yusei+Magic&display=swap');
+
 body {
   text-align: center;
   background-color: #F8F8F8;
+  font-family: 'Yusei Magic', sans-serif;
 }
+
 
 .App-logo {
   height: 40vmin;
@@ -40,8 +44,8 @@ body {
 
 .fileList{
   width: 400px;
-    height: 100px;
-    margin: 0 auto;
+  height: 130px;
+  margin: 0 auto;
     background-color: lightslategrey;
     border-radius: 20px;
     color: white;
@@ -85,13 +89,16 @@ body {
   height: 500px;
   border-radius: 10px;
   border: 6px dotted plum;
-  background-color: blanchedalmond;
+  background-color: #eaecf5;
 }
 
 .centerUpload{
+  
   display: grid;
+  align-items: center;
+
   padding-bottom: 100px;
-  grid-template-columns: repeat(2, 1fr);
+  grid-template-columns: 35% 1fr;
   grid-template-rows: 1fr;
 }
 
@@ -101,5 +108,45 @@ h5{
 
 .filesContainer{
   overflow-y: scroll;
-  height: 500px;
+  height: 550px;
+  width: 600px;
+  border: 3px solid black;
+  border-radius: 10px
+  /* #c6c6e3 */
+  
+
+}
+
+button {
+  font-family: ;
+  display: inline-block;
+  border: none;
+  border-radius: 4px;
+  padding: 1rem 2rem;
+  margin: 0 10px;
+  text-decoration: none;
+  background: #c6c6e3;
+  color: #ffffff;
+  font-family: sans-serif;
+  font-size: 1rem;
+  cursor: pointer;
+  text-align: center;
+  transition: background 250ms ease-in-out, 
+              transform 150ms ease;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+}
+
+button:hover,
+button:focus {
+  background: #c6c6e3;
+}
+
+button:focus {
+  outline: 1px solid #fff;
+  outline-offset: -4px;
+}
+
+button:active {
+  transform: scale(0.99);
 }
