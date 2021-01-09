@@ -20,24 +20,27 @@ export default function FileList(props) {
     return (
         <div>
             {modalShow?
-            <form onSubmit={handleSubmit}>
-                <input value={newName} onChange={e => setNewName(e.target.value)} placeholder="New file name"></input>
-                <button type="submit" >Submit</button>
-            </form>
+                <div className="modalEdit">
+                    <form onSubmit={handleSubmit}>
+                        <input value={newName} onChange={e => setNewName(e.target.value)} placeholder="New file name"></input>
+                        <button type="submit" >Submit</button>
+                        <button onClick={()=>setShow(false)}>Close</button>
+                    </form>
+                </div>
             :
             null
             }
 
-            <ul>
+            <div>
                 {props.files.map((file,index)=>{
                     return (
-                        <li key={index}>
+                        <div className='fileList' key={index}>
                             <h1>{file.name}</h1>
                             <button onClick={()=>{handleShowEdit(file.id)}}>Edit Item</button>
-                        </li>
+                        </div>
                     )
                 })}
-            </ul>
+            </div>
         </div>
     )
 }

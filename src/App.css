@@ -36,3 +36,20 @@
     transform: rotate(360deg);
   }
 }
+
+.fileList{
+  border:1px solid black;
+}
+
+.modalEdit{
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.uploadContainer{
+  max-width: 1620px;
+  align-self: center;
+  margin: 0 auto;
+}

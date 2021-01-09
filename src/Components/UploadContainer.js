@@ -3,7 +3,7 @@ import DragAndDrop from './DragAndDrop'
 
 export default function UploadContainer() {
     return (
-        <div>
+        <div className="uploadContainer">
             <h1>Upload your Files</h1>
             <DragAndDrop/>
         </div>
