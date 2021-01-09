@@ -43,11 +43,11 @@ export default function FileList(props) {
             null
             }
 
-            <div>
+            <div className='filesContainer'>
                 {props.files.map((file,index)=>{
                     return (
                         <div className='fileList' key={index}>
-                            <h1>{file.name}</h1>
+                            <h5>{file.name}</h5>
                             
                             {/* <button onClick={()=>{handleChangeFilePosition(file.id,true)}}>+</button> Was in the process of changing position in queu functionality.
                             <button onClick={()=>{handleChangeFilePosition(file.id,false)}}>-</button> */}

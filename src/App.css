@@ -39,10 +39,12 @@ body {
 }
 
 .fileList{
-  
-  border:1px solid black;
   width: 400px;
-  margin: 0 auto;
+    height: 100px;
+    margin: 0 auto;
+    background-color: lightslategrey;
+    border-radius: 20px;
+    color: white;
 
 }
 
@@ -79,7 +81,6 @@ body {
 }
 .dragZone{
   margin: 0 auto;
-
   width: 400px;
   height: 500px;
   border-radius: 10px;
@@ -89,6 +90,16 @@ body {
 
 .centerUpload{
   display: grid;
+  padding-bottom: 100px;
   grid-template-columns: repeat(2, 1fr);
   grid-template-rows: 1fr;
+}
+
+h5{
+  padding-top: 20px;
+}
+
+.filesContainer{
+  overflow-y: scroll;
+  height: 500px;
 }
