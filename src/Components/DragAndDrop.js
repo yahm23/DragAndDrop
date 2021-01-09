@@ -16,6 +16,7 @@ export default function DragAndDrop() {
     return (
         <div>
             <h1>Drag and drop</h1>
+
             <Dropzone onDrop={acceptedFiles => addFileToList(acceptedFiles[0])}>
                 {({getRootProps, getInputProps}) => (
                 <section>
@@ -27,6 +28,17 @@ export default function DragAndDrop() {
                 </section>
                 )}
             </Dropzone>
+
+            <ul>
+                {fileList.map((file,index)=>{
+                    return (
+                        <li key={index}>
+                            <h1>{file.name}</h1>
+                        </li>
+
+                    )
+                })}
+            </ul>
 
             <button onClick={()=>{console.log(fileList)}}>Log fileList</button>
         </div>
