@@ -2,8 +2,8 @@ import React from 'react'
 
 export default function FileList(props) {
 
-    const handleEdit = ()=>{
-        
+    const handleEdit = (id)=>{
+        props.editFileName(id,'This working?')
     }
 
     return (
@@ -13,7 +13,7 @@ export default function FileList(props) {
                     return (
                         <li key={index}>
                             <h1>{file.name}</h1>
-                            <button onClick={()=>{handleEdit()}}>Edit Item</button>
+                            <button onClick={()=>{handleEdit(file.id)}}>Edit Item</button>
                         </li>
                     )
                 })}

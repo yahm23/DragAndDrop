@@ -1,5 +1,6 @@
 import React, {useState} from 'react'
 import Dropzone from 'react-dropzone'
+import { idGenerator } from '../functions'
 import FileList from './FileList'
 
 export default function DragAndDrop() {
@@ -8,10 +9,24 @@ export default function DragAndDrop() {
 
     const addFileToList = (fileObject) =>{
         let newObj = [...fileList]; // copying the old state
+        fileObject.id = idGenerator();
         newObj.push(fileObject)
         setFileList(newObj);
-
     }
+
+    const editFileName = (fileID,newName)=>{
+        let updatedList = fileList.map(file => 
+            {
+              if (file.id == fileID){
+                return {...file, name: newName}; //gets everything that was already in file, and updates name
+              }
+              return file; // else return unmodified item 
+            });
+        
+            setFileList(updatedList)
+    }
+
+
 
 
     return (
@@ -30,9 +45,9 @@ export default function DragAndDrop() {
                 )}
             </Dropzone>
 
-            <FileList files={fileList}/>
+            <FileList editFileName={editFileName} files={fileList}/>
 
-            <button onClick={()=>{console.log(fileList)}}>Log fileList</button>
+            <button onClick={()=>{console.log( fileList)}}>Log fileList</button>
         </div>
     )
 }
