@@ -6,8 +6,6 @@ export default function UploadContainer() {
         <div>
             <h1>Upload your Files</h1>
             <DragAndDrop/>
-
-
         </div>
     )
 }
